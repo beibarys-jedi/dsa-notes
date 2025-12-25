@@ -1,0 +1,22 @@
+# Компилированные бинарники
+*.out
+*.o
+*.obj
+*.exe
+main   # если это бинарь
+
+# Каталоги сборки
+/build/
+/bin/
+/Debug/
+/Release/
+
+# Настройки IDE
+.vscode/
+.idea/
+
+# Системные файлы macOS
+.DS_Store
+
+# Логи
+*.log
