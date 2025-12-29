@@ -48,5 +48,3 @@ For more fundamental data types, check the first resource in the table above.
 Competitive Coding Recommendations for C++ is also useful for learning & practicing DSA.
 https://codeforces.com/blog/entry/64218
 
-
-## Arrays
