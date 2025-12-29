@@ -20,3 +20,7 @@ main   # если это бинарь
 
 # Логи
 *.log
+programming/main.dSYM/Contents/Info.plist
+programming/main.dSYM/Contents/Resources/DWARF/main
+intro/sum
+intro/sum.dSYM/Contents/Info.plist
