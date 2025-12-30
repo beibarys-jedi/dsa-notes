@@ -70,14 +70,115 @@ public:
 };
 ```
 
+121. Best Time to Buy and Sell Stock
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+                int diff = 0;
+
+        int n = prices.size();
+
+        for(int i = 0; i < n; i++){
+            for(int j = i + 1; j < n; j++){
+                if(prices[i] < prices[j]){
+                    diff = max(diff, prices[j] - prices[i]); // fix max()
+                }
+            }
+        }
+        return diff;
+    }
+};
+```
+
+
+217. Contains Duplicate
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        
+        for (int i = 0; i < nums.size(); i++){
+           for (int j = i + 1; j < nums.size(); j++){
+                if(nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+1431. Kids With the Greatest Number of Candies
+
+```cpp
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool> answer;
+
+        // loop
+        // candies[i] + extraCandies > candies[i] return true
+        // answer[i] = true    
+        // answer[i] = false
+
+                // 1) Find the max candies any kid has
+        int maxCandies = 0;
+        for (int c : candies) {
+            if (c > maxCandies) {
+                maxCandies = c;
+            }
+        }
+        
+        // 2) Build result
+        for (int c : candies) {
+            if (c + extraCandies >= maxCandies) {
+                answer.push_back(true);
+            } else {
+                answer.push_back(false);
+            }
+        }
+
+        return answer;
+        
+    }
+};
+```
+
+1295. Find Numbers with Even Number of Digits
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int count = 0;
+        int n = nums.size();
+        int i = 0;
+
+        while (i < n) {
+           int digits = 0;
+            int x = nums[i];  // temp variable
+
+            while (x != 0) {
+                x = x / 10;
+                digits++;
+            }
+
+            if (digits % 2 == 0) {
+                count++;
+            }
+
+            i++;
+        }
+
+        return count;
+    }
+};
+```
 
 ### In progress
-
 88. Merge Sorted Array
-121. Best Time to Buy and Sell Stock
-217. Contains Duplicate
-1431. Kids With the Greatest Number of Candies
-1295. Find Numbers with Even Number of Digits
 1304. Find N Unique Integers Sum up to Zero 
 1827. Minimum Operations to Make the Array Increasing 
  125. Valid Palindrome 
