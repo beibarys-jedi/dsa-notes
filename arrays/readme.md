@@ -177,20 +177,44 @@ public:
 };
 ```
 
+1304. Find N Unique Integers Sum up to Zero 
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        vector<int> ans;
+
+        if (n % 2 == 1) {
+            ans.push_back(0);
+        }
+
+        int mid = n/2;
+        int i = 1;
+
+        while (i <= mid) {
+            ans.push_back(i);
+            ans.push_back(-i);
+            i++;
+        }
+        return ans;
+    }
+};
+```
+
 ### In progress
 88. Merge Sorted Array
-1304. Find N Unique Integers Sum up to Zero 
 1827. Minimum Operations to Make the Array Increasing 
- 125. Valid Palindrome 
- 1844. Replace All Digits with Characters 
- 709. To Lower Case 
- 1662. Check If Two String Arrays are Equivalent 
- 771. Jewels and Stones 
- 2114. Maximum Number of Words Found in Sentences 
- 1528. Shuffle String 
- 242. Valid Anagram 
- 2500. Delete Greatest Value in Each Row 
- 1572. Matrix Diagonal Sum
- 1260. Shift 2D Grid 
- 867. Transpose Matrix 
- 766. Toeplitz Matrix 
+125. Valid Palindrome 
+1844. Replace All Digits with Characters 
+709. To Lower Case 
+1662. Check If Two String Arrays are Equivalent 
+771. Jewels and Stones 
+2114. Maximum Number of Words Found in Sentences 
+1528. Shuffle String 
+242. Valid Anagram 
+2500. Delete Greatest Value in Each Row 
+1572. Matrix Diagonal Sum
+1260. Shift 2D Grid 
+867. Transpose Matrix 
+766. Toeplitz Matrix 
