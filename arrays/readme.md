@@ -202,9 +202,53 @@ public:
 };
 ```
 
+1827. Minimum Operations to Make the Array Increasing 
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int answer = 0;
+        int n = nums.size();
+        int i = 1;
+
+        while (i < n){
+            while (nums[i] <= nums[i - 1]) {
+                nums[i]++;
+                answer++;
+            }
+            i++;
+        }
+
+        return answer;
+    }
+};
+```
+
+More optimized way
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        int operations = 0;
+        int n = nums.size();
+        int i  = 1;
+
+        while (i < n){
+            if(nums[i] <= nums[i-1]) {
+                int temp = nums[i-1] + 1 - nums[i];
+                operations += temp;
+                nums[i] += temp;
+            }
+            i++;
+        }
+        return operations;
+    }
+};
+```
+
 ### In progress
 88. Merge Sorted Array
-1827. Minimum Operations to Make the Array Increasing 
 125. Valid Palindrome 
 1844. Replace All Digits with Characters 
 709. To Lower Case 
