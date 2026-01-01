@@ -247,13 +247,175 @@ public:
 };
 ```
 
+1844. Replace All Digits with Characters 
+
+Approach 1
+```cpp
+class Solution {
+public:
+    string replaceDigits(string s) {
+        int n = s.length();
+
+        for (int i=1; i < n; i = i + 2){
+            int digit = s[i] - '0';
+            s[i] = s[i-1] + digit;
+        }
+
+        return s;
+    }
+};
+```
+
+Approach 2
+```cpp
+class Solution {
+public:
+    char shift (char c, int x){
+        return c+x;
+    }
+
+    string replaceDigits(string s) {
+        int i = 1;
+        int n = s.length();
+        while (i < n) {
+            int digit = s[i] - '0';
+            s[i] = shift(s[i-1], digit);
+            i = i + 2;
+        }
+
+        return s;
+    }
+};
+```
+
+709. To Lower Case 
+
+Easy Solution 1:
+```cpp
+class Solution {
+public:
+    string toLowerCase(string s) {
+        int i = 0;
+        int n = s.length();
+
+        while (i < n) {
+            s[i] = tolower(s[i]);
+            i++;
+        }
+
+        return s;
+    }
+};
+```
+
+Solution 2:
+
+Recognize that ASCII (American Standard Code for Information Interchange) assigns numerical values to characters. In the ASCII table, uppercase and lowercase letters are separated by a fixed interval:
+- Uppercase 'A' to 'Z' have ASCII values from 65 to 90.
+- Lowercase 'a' to 'z' have ASCII values from 97 to 122.
+- The difference between the ASCII values of uppercase and its corresponding lowercase letter is 32.
+
+Check if the ASCII value is within the range of uppercase letters (65 to 90). 
+If so, add 32 to the ASCII value to convert it to the corresponding lowercase letter.
+
+```cpp
+class Solution {
+public:
+    string toLowerCase(string s) {
+        int i = 0;
+        int n = s.length();
+        while (i < n) {
+            if( s[i] >= 'A' && s[i] <= 'Z') {
+                s[i] = s[i] + 32;
+            }
+        i++;
+        }
+        return s;
+    }
+};
+```
+
+1662. Check If Two String Arrays are Equivalent 
+
+```cpp
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        int i = 0;
+        string first = "";
+        while (i < word1.size()){
+            first.append(word1[i]);
+            i++;
+        }
+
+        int j = 0;
+        string second = "";
+        while(j< word2.size()){
+            second.append(word2[j]);
+            j++;
+        }
+        
+        if (first == second) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+};
+```
+
+771. Jewels and Stones
+
+Bruteforce Loop using for loop
+```cpp
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        int count = 0;
+        int s = 0;
+
+        while (s < stones.length()) {       
+            int j = 0;
+            while (j < jewels.length()) {  
+                if (stones[s] == jewels[j]) {
+                    count++;
+                    break;                  
+                }
+                j++;
+            }
+            s++;
+        }
+
+        return count;
+    }
+};
+```
+
+Bruteforce Loop using for loop, more verbose.
+```cpp
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        int count = 0;
+
+        for (char stone: stones){
+            for (char jewel: jewels){
+                if (stone == jewel) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+};
+```
+Problem also can be solved with Hashmap, but i don't want this.
+
 ### In progress
 88. Merge Sorted Array
 125. Valid Palindrome 
-1844. Replace All Digits with Characters 
-709. To Lower Case 
-1662. Check If Two String Arrays are Equivalent 
-771. Jewels and Stones 
 2114. Maximum Number of Words Found in Sentences 
 1528. Shuffle String 
 242. Valid Anagram 
