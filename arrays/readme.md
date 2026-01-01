@@ -413,9 +413,7 @@ public:
 ```
 Problem also can be solved with Hashmap, but i don't want this.
 
-### In progress
-88. Merge Sorted Array
-125. Valid Palindrome 
+### TO DO
 2114. Maximum Number of Words Found in Sentences 
 1528. Shuffle String 
 242. Valid Anagram 
@@ -424,3 +422,7 @@ Problem also can be solved with Hashmap, but i don't want this.
 1260. Shift 2D Grid 
 867. Transpose Matrix 
 766. Toeplitz Matrix 
+
+### Questions
+88. Merge Sorted Array
+125. Valid Palindrome 
