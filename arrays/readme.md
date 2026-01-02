@@ -600,14 +600,36 @@ public:
 };
 ```
 
-### TO DO
 2500. Delete Greatest Value in Each Row 
+```cpp
+class Solution {
+public:
+    int deleteGreatestValue(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int m = grid[0].size();               
+        int answer = 0;
+
+        for (int i = 0; i < n; i++){
+            sort(grid[i].begin(), grid[i].end());
+        }
+
+        for (int j = 0; j < m; j++){
+            int great = 0;
+            for (int i = 0; i < n; i++){
+                great = max(great, grid[i][j]);
+            }
+            answer += great;
+        }
+        
+        return answer;  
+    }
+};
+```
+
+### TO DO
 1572. Matrix Diagonal Sum
 1260. Shift 2D Grid 
 867. Transpose Matrix 
 766. Toeplitz Matrix 
-
-### Questions
 125. Valid Palindrome 
 
-need to know sorting in C++
