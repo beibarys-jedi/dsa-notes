@@ -525,6 +525,81 @@ public:
     }
 };
 ```
+
+88. Merge Sorted Array
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> temp;
+
+        int i = 0;
+        while (i < m){
+           temp.push_back(nums1[i]); 
+           i++;
+        }
+
+        int j = 0;
+        while (j < n){
+           temp.push_back(nums2[j]); 
+           j++;
+        }
+
+        sort(temp.begin(), temp.end());
+
+        for (int i = 0; i <m+n; i++){
+            nums1[i] = temp[i];
+        }
+    }
+};
+```
+
+
+242. Valid Anagram 
+
+Solution Number One:
+
+```cpp
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+
+        return s == t;
+    }
+};
+```
+
+Solution Number Two:
+
+```cpp
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size()) return false;
+        vector<int> countS(26, 0);
+        for (char c : s)
+            countS[c - 'a']++;
+        vector<int> countT(26, 0);
+        for (char c : t)
+            countT[c - 'a']++;
+        int i = 0;
+        while (i < 26){
+            if (countS[i] != countT[i]){
+                return false;
+            }
+            // Проходим по всем буквам 'a'..'z'
+            // Если хотя бы одна буква встречается разное число раз → это не анаграмма
+            i++;
+        }
+
+        return true;
+    }
+};
+```
+
 ### TO DO
 2500. Delete Greatest Value in Each Row 
 1572. Matrix Diagonal Sum
@@ -533,8 +608,6 @@ public:
 766. Toeplitz Matrix 
 
 ### Questions
-88. Merge Sorted Array
 125. Valid Palindrome 
-242. Valid Anagram 
 
 need to know sorting in C++
