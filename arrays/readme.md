@@ -413,11 +413,122 @@ public:
 ```
 Problem also can be solved with Hashmap, but i don't want this.
 
-### TO DO
 2114. Maximum Number of Words Found in Sentences 
+
+```cpp
+class Solution {
+public:
+    int mostWordsFound(vector<string>& sentences) {
+        // count spaces
+        // answer will be number of spaces + 1
+        int maxWords = 0;
+        int n = sentences.size();
+        // Loop through each character by value
+        for (string sentence : sentences) {
+            int cnt = count(sentence.begin(), sentence.end(), ' ');
+            // maxWords = max(cnt+1, maxWords);
+            if (cnt + 1 > maxWords) {
+                maxWords = cnt + 1;
+            }
+        }
+
+        return maxWords;
+
+    }
+};
+```
+
 1528. Shuffle String 
-242. Valid Anagram 
-2500. Delete Greatest Value in Each Row 
+
+indices[i] говорит: КУДА должен попасть символ s[i]
+
+То есть:
+1) i — откуда берём символ
+2) indices[i] — куда его кладём
+
+Мнемоника (чтобы не путаться)
+- i → берём
+- indices[i] → кладём
+
+
+        // we have c letter, so it's position will be 5
+        // answer[4] = s[0]; where 4 will be indices[]
+        // we have letter o, it's position now 1, but it should be 5
+        // answer[5] = s[1];
+```cpp
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+        int n = s.length();
+
+        string ans(n, '0');
+
+        for (int i = 0; i < n; i++){
+            ans[indices[i]] = s[i];
+        }
+
+        return ans;
+      
+        // create empty string answer
+        // loop
+        // codeleet, [4,5,6,7,0,2,1,3]
+        // fill first letter -> answer[0] = s[indices[4]]
+        // second letter -> answer[1] = s[indices[5]]
+
+    }
+};
+```
+
+Another attempt
+
+```cpp
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+        // let's solve it
+        int n = s.length();
+        // create empty string
+        string result(n, 'o');
+        
+        int i = 0;
+        // loop over s
+        while (i < n) {
+            result[indices[i]] = s[i];
+            i++;
+        }
+
+        // we have c letter, so it's position will be 5
+        // answer[4] = s[0]; where 4 will be indices[]
+        // we have letter o, it's position now 1, but it should be 5
+        // answer[5] = s[1];
+
+
+        // cout << result[5];
+        // result[5] = s[5];
+        // result[6] = s[6];
+        // cout << result[5] << ", "<<result[6];
+
+        // codeleet
+        // 45670213
+        // leetcode
+
+        // l result[i] = s[indices[i]]
+        // l result[0] = s[indices[4]]
+        // e result[1] = s[indices[5]]
+        // e result[2] = s[indices[6]]
+        // t result[3] = s[indices[7]]
+        // c result[4] = s[0] = s[indices[5]]
+        // o result[5] = s[1] = s[indices[6]]
+        // d result[6] = s[2] = s[indices[5]]
+
+        return result;
+    }
+};
+```
+### TO DO
+
+
+
 1572. Matrix Diagonal Sum
 1260. Shift 2D Grid 
 867. Transpose Matrix 
@@ -426,3 +537,7 @@ Problem also can be solved with Hashmap, but i don't want this.
 ### Questions
 88. Merge Sorted Array
 125. Valid Palindrome 
+242. Valid Anagram 
+2500. Delete Greatest Value in Each Row 
+
+need to know sorting in C++
