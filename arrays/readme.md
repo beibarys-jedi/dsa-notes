@@ -526,9 +526,7 @@ public:
 };
 ```
 ### TO DO
-
-
-
+2500. Delete Greatest Value in Each Row 
 1572. Matrix Diagonal Sum
 1260. Shift 2D Grid 
 867. Transpose Matrix 
@@ -538,6 +536,5 @@ public:
 88. Merge Sorted Array
 125. Valid Palindrome 
 242. Valid Anagram 
-2500. Delete Greatest Value in Each Row 
 
 need to know sorting in C++
