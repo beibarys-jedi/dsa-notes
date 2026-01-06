@@ -626,10 +626,76 @@ public:
 };
 ```
 
-### TO DO
 1572. Matrix Diagonal Sum
-1260. Shift 2D Grid 
+
+```cpp
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int n = mat.size();
+        int answer = 0;
+        int i = 0;
+        while ( i < n) {
+            int j = 0;
+            while (j <n){
+                if (i == j || i + j == n - 1) { 
+                    answer += mat[i][j]; 
+                }
+                j++;
+            }
+            i++;
+        }
+
+        return answer;
+    }
+};
+
 867. Transpose Matrix 
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        vector<vector<int>> result(n, vector<int>(m));
+
+        for (int i = 0; i < m; i++){
+            for (int j = 0; j <n; j++){
+                result[j][i] = matrix[i][j];
+            }
+        }
+
+        return result;
+    }
+};
+```
+
 766. Toeplitz Matrix 
+
+```cpp
+class Solution {
+public:
+    bool isToeplitzMatrix(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (matrix[i][j] != matrix[i - 1][j - 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
+```
+
+### TO DO
+
+```
+1260. Shift 2D Grid ???
 125. Valid Palindrome 
 

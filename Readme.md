@@ -26,3 +26,13 @@ clang++ main.cpp -o main
 ./main
 hello
 ```
+
+## Syllabus of repo
+1. [lesson1](./lesson1) Two pointers. Sliding window.
+2. [lesson2](./lesson2) Linked List
+3. [lesson3](./lesson3) Brute Force
+4. [lesson4](./lesson4) HashMap
+5. [lesson5](./lesson5) Prefix Sums
+6. [lesson6](./lesson6) Binary Search
+7. [lesson7](./lesson7) Greedy 
+8. [lesson8](./lesson8) Stack 
