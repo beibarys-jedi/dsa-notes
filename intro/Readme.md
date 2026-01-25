@@ -20,7 +20,8 @@ int main() {
 Run command
 
 ```shell
- clang++ sum.cpp -o sum
+ clang++ -std=c++17 main.cpp -o main
+
  ./sum
  ```
 
