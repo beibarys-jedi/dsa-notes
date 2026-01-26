@@ -29,7 +29,7 @@ hello
 
 ## Syllabus of repo
 0. [lesson1](./introtoprogramming) Introduction to programming.
-1. [lesson1](./lesson1) Two pointers. Sliding window.
+1. [lesson1](./lesson1-twopointers-slidingwindow/Readme.md) Two pointers. Sliding window.
 2. [lesson2](./lesson2) Linked List
 3. [lesson3](./lesson3) Brute Force
 4. [lesson4](./lesson4) HashMap
